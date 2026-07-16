@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/d-din');
+
+:root {
+  --bg-space: #030712;
+  --bg-space-dark: #010103;
+  --bg-nebula: #08111F;
+  --bg-nebula-deep: #0E1B34;
+  --accent-blue: #3B82F6;
+  --accent-purple: #8B5CF6;
+  --accent-cyan: #00E5FF;
+  --text-primary: #FFFFFF;
+  --text-secondary: #94a3b8;
+  
+  --glass-bg: rgba(8, 17, 31, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border-glow: rgba(0, 229, 255, 0.15);
+  --glass-hover: rgba(255, 255, 255, 0.08);
+
+  --font-sans: 'D-DIN', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'D-DIN', 'Space Grotesk', -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  
+  --transition-cinematic: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Cinematic Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-space);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Cinematic Layout Utilities */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .container { padding: 0 1.5rem; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+}
+
+.section-padding {
+  padding: 4.5rem 0;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Chrome metallic text */
+.text-chrome {
+  background: linear-gradient(135deg, #ffffff 20%, #e2e8f0 50%, #94a3b8 80%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shineText 8s linear infinite;
+}
+
+@keyframes shineText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Galaxy glowing moving text gradient */
+.text-galaxy-gradient {
+  background: linear-gradient(135deg, #00E5FF 0%, #3B82F6 40%, #8B5CF6 75%, #00E5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 250% auto;
+  animation: shineGalaxy 6s linear infinite;
+}
+
+@keyframes shineGalaxy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glowing cyber gradients */
+.text-cyan-glow {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.text-purple-glow {
+  color: var(--accent-purple);
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Cinematic glass panel (Nothing / SpaceX style) */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  transition: var(--transition-cinematic);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(8, 17, 31, 0.6);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
+              0 0 40px rgba(0, 229, 255, 0.03);
+}
+
+/* Premium Neon Gradient Glow Buttons — Matches Logo Effect */
+.btn-chrome {
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem 2.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #0d9488, #1e40af, #7c3aed, #c026d3);
+  background-size: 300% 300%;
+  animation: btnGradientShift 6s ease infinite;
+  box-shadow:
+    0 0 15px rgba(0, 229, 255, 0.25),
+    0 0 30px rgba(139, 92, 246, 0.15),
+    0 0 45px rgba(192, 38, 211, 0.1);
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.btn-chrome:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 20px rgba(0, 229, 255, 0.4),
+    0 0 40px rgba(139, 92, 246, 0.3),
+    0 0 60px rgba(192, 38, 211, 0.2),
+    0 8px 25px rgba(0, 0, 0, 0.3);
+  background-size: 300% 300%;
+}
+
+@keyframes btnGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-cyber {
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem 2.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background-image:
+    linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
+    linear-gradient(135deg, #00E5FF, #3B82F6, #8B5CF6, #D946EF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow:
+    0 0 12px rgba(0, 229, 255, 0.12),
+    0 0 25px rgba(139, 92, 246, 0.08);
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.btn-cyber:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 18px rgba(0, 229, 255, 0.3),
+    0 0 35px rgba(139, 92, 246, 0.2),
+    0 0 50px rgba(192, 38, 211, 0.12),
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Shining Specular Highlight Sweep for Buttons */
+.btn-chrome::after, .btn-cyber::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.btn-chrome:hover::after, .btn-cyber:hover::after {
+  animation: btnReflectSweep 1.2s ease-out;
+}
+
+@keyframes btnReflectSweep {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Glowing energy animation for strings */
+@keyframes energyPulse {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+/* Chrome Sweep effect overlay */
+.metallic-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.metallic-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.metallic-sweep:hover::after {
+  animation: metallicSweep 1.5s ease-out infinite;
+}
+
+@keyframes metallicSweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+@media (max-width: 991px) {
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-padding {
+    padding: 2.5rem 0;
+  }
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Shining Star Sparkles Styling */
+.sparkle-flare {
+  animation: sparklePulse 3s ease-in-out infinite alternate, sparkleRotate 14s linear infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.8));
+}
+
+.sparkle-flare-purple {
+  animation: sparklePulse 3.5s ease-in-out infinite alternate-reverse, sparkleRotate 18s linear infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.8));
+}
+
+.sparkle-flare-gold {
+  animation: sparklePulse 2.8s ease-in-out infinite alternate, sparkleRotate 11s linear infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(253, 224, 71, 0.8));
+}
+
+@keyframes sparklePulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes sparkleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glowing Neon Logo Border styles */
+.glowing-logo-border {
+  animation: borderGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes borderGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.45), 0 0 3px rgba(139, 92, 246, 0.25), inset 0 0 3px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.8), 0 0 8px rgba(139, 92, 246, 0.55), inset 0 0 6px rgba(0, 229, 255, 0.4);
+  }
+}
+
+/* Glowing Hero Dashboard Card */
+.glowing-hero-card {
+  animation: heroCardGlowPulse 5s ease-in-out infinite;
+}
+
+@keyframes heroCardGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2), 0 0 8px rgba(139, 92, 246, 0.1), inset 0 0 10px rgba(0, 229, 255, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 229, 255, 0.45), 0 0 15px rgba(139, 92, 246, 0.3), inset 0 0 15px rgba(0, 229, 255, 0.15);
+  }
+}
+
+/* SVG Glowing Rect Border */
+.glowing-hero-rect {
+  animation: heroRectGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes heroRectGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.45)) drop-shadow(0 0 2px rgba(139, 92, 246, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.8)) drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
+  }
+}
